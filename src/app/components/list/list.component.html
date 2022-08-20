@@ -1,0 +1,14 @@
+<div class="list">
+    <div class="header">
+        <h2 class="title" [ngSwitch]="type">
+            <span *ngSwitchCase="1" class="material-icons material-icons-outlined">circle</span>
+            <span *ngSwitchCase="2" class="material-icons material-icons-outlined">sync</span>
+            <span *ngSwitchCase="3" class="material-icons material-icons-outlined">task_alt</span>
+            {{ title }}
+        </h2>
+    </div>
+
+    <div class="tickets">
+        <app-ticket *ngFor="let ticket of tickets" [data]="ticket"></app-ticket>
+    </div>
+</div>

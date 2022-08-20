@@ -1,0 +1,28 @@
+.kanban-board {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        
+        .title {
+            font-size: 3rem;
+        }
+    }
+
+
+    .lists {
+        max-height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        gap: 2rem;
+        overflow: hidden;
+    }
+}

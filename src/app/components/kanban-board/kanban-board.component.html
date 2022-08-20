@@ -1,0 +1,18 @@
+<div class="kanban-board">
+    <div class="header">
+        <h2 class="title">Kanban Board</h2>
+
+        <div class="actions">
+            <button mat-button color="primary" (click)="getTickets()">
+                <mat-icon [ngClass]="{'spin': isLoading}">refresh</mat-icon>
+            </button>
+            <button mat-flat-button color="primary" (click)="createTicket()">Create Ticket</button>
+        </div>
+    </div>
+
+    <div class="lists">
+        <app-list [type]="1" [title]="'New'" [tickets]="(newTickets | async)!"></app-list>
+        <app-list [type]="2" [title]="'In Progress'" [tickets]="(inProgressTickets | async)!"></app-list>
+        <app-list [type]="3" [title]="'Done'" [tickets]="(doneTickets | async)!"></app-list>
+    </div>
+</div>

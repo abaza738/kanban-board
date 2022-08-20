@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./theme.scss";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Lexend", sans-serif;
+
+  &.light-theme {
+    @include angular-material-theme($angular-firebase-light-theme);
+  }
+
+  &.dark-theme {
+    @include angular-material-theme($angular-firebase-dark-theme);
+
+    background-color: #303030;
+    color: white;
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

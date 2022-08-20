@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: KanbanBoardComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

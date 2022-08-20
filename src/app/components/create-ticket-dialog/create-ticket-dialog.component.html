@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{ data ? data.title : 'Create New Ticket' }}</h1>
+<div>
+    <form [formGroup]="form">
+        
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option [value]="1">New</mat-option>
+                <mat-option [value]="2">In Progress</mat-option>
+                <mat-option [value]="3">Done</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Priority</mat-label>
+            <mat-select formControlName="priority">
+                <mat-option [value]="1">Low</mat-option>
+                <mat-option [value]="2">Normal</mat-option>
+                <mat-option [value]="3">High</mat-option>
+                <mat-option [value]="4">Critical</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput type="text" formControlName="description"></textarea>
+        </mat-form-field>
+
+    </form>
+
+    <div mat-dialog-actions align="end">
+        <button mat-stroked-button mat-dialog-close color="warn">Cancel</button>
+        <button mat-flat-button color="primary" (click)="save()">Save</button>
+    </div>
+</div>

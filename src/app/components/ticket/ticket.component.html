@@ -1,0 +1,52 @@
+<mat-card
+    [ngClass]="{
+        'new': ticket.status == 1,
+        'in-progress': ticket.status == 2,
+        'done': ticket.status == 3
+    }"
+    (click)="openTicket()"
+>
+    
+    <mat-card-header>
+        <mat-card-title>
+            {{ ticket.title || 'Title' }}
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-chip-list>
+        <mat-chip
+            [ngSwitch]="ticket.priority"
+            class="priority"
+            [ngClass]="{
+                'low': ticket.priority == 1,
+                'normal': ticket.priority == 2,
+                'high': ticket.priority == 3,
+                'critical': ticket.priority == 4
+            }"
+        >
+            <span *ngSwitchCase="1">
+                <span class="material-icons material-icons-outlined">arrow_downward</span>
+                <span>Low</span>
+            </span>
+            <span *ngSwitchCase="2">
+                <span class="material-icons material-icons-outlined">horizontal_rule</span>
+                <span>Normal</span>
+            </span>
+            <span *ngSwitchCase="3">
+                <span class="material-icons material-icons-outlined">arrow_upward</span>
+                <span>High</span>
+            </span>
+            <span *ngSwitchCase="4">
+                <span class="material-icons material-icons-outlined">priority_high</span>
+                <span>Critical</span>
+            </span>
+        </mat-chip>
+    </mat-chip-list>
+
+    <mat-card-content>
+        <p>
+            {{ ticket.description }}
+        </p>
+    </mat-card-content>
+
+</mat-card>

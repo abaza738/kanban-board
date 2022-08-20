@@ -1,0 +1,61 @@
+@use "@angular/material" as mat;
+@import "../../../theme.scss";
+
+.mat-card {
+    cursor: pointer;
+    box-shadow: none !important;
+    position: relative;
+    border: 1px solid #8885;
+    
+    &.in-progress {
+        font-weight: 600;
+        border: 2px solid map-get($map: $angular-firebase-primary, $key: 300);
+    }
+
+    &.done, &.done .mat-card-subtitle {
+        color: grey;
+    }
+    
+    .mat-card-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        
+    }
+    
+    .mat-chip-list {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        
+        & .mat-chip.priority {        
+            font-size: 1rem !important;
+
+            .material-icons {
+                width: 1rem;
+                height: 1rem;
+                font-size: 1rem;
+            }
+
+            & > span {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+    
+            &.low {
+                background-color: map-get($map: $angular-firebase-primary, $key: 300);
+            }
+        
+            &.high {
+                background-color: map-get($map: mat.$orange-palette, $key: 800);
+            }
+    
+            &.critical {
+                background-color: map-get($map: $angular-firebase-warn, $key: 400);
+            }
+        }
+    }
+
+}

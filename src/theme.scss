@@ -1,0 +1,25 @@
+@use "@angular/material" as mat;
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$custom-typography: mat-typography-config(
+  $font-family: "Lexend",
+  $body-1: mat-typography-level(16px, 22px, 300),
+);
+
+@include mat.core($custom-typography);
+
+$angular-firebase-primary: mat.define-palette(mat.$blue-palette);
+$angular-firebase-accent: mat.define-palette(
+  mat.$cyan-palette,
+  A200,
+  A100,
+  A400
+);
+
+$angular-firebase-warn: mat.define-palette(mat.$red-palette);
+
+$angular-firebase-light-theme: mat-light-theme($angular-firebase-primary, $angular-firebase-accent, $angular-firebase-warn);
+
+$angular-firebase-dark-theme: mat-dark-theme($angular-firebase-primary, $angular-firebase-accent, $angular-firebase-warn);
+
